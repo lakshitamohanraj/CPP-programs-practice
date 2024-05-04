@@ -1,0 +1,39 @@
+10.
+//----------To write a program to demonstrate Inline Function using C++----------
+
+#include <iostream>
+using namespace std;
+class Process{
+     int val1,val2;
+     public:
+       Process()
+       {
+        cout<<"Enter two values:";
+        cin>>val1>>val2;
+       }
+        void multi();
+       void cube();  
+};
+void Process::multi()
+{
+    cout<<"Multiplication value is:"<<val1*val2<<endl;
+}
+void Process::cube(){
+    cout<<"Cube 1st Value  is:"<<val1*val1*val1<<endl;
+    cout<<"Cube 2nd Value  is:"<<val2*val2*val2<<endl;
+}
+int main(){
+    Process p;
+    p.multi();
+    p.cube();
+    return 0;
+}
+
+
+SAMPLE OUTPUT:
+
+Enter two values:7 5
+Multiplication value is:35
+Cube 1st Value  is:343
+Cube 2nd Value  is:125
+

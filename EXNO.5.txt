@@ -1,0 +1,147 @@
+5. )
+
+//-------------INTERNAL MARK COMPUTATION-----------------
+#include <iostream>
+using namespace std;
+
+struct Student{
+    string name;
+    unsigned int regno;
+    double m1,m2,m3,m4,m5,total,avg;
+    double getAverage();
+    double getTotal();
+    void displayData();
+};
+double Student::getTotal(){
+    total= m1+m2+m3+m4+m5;
+    return total;
+}
+double Student::getAverage(){
+    avg=(m1+m2+m3+m4+m5)/5;
+    return avg;
+}
+void Student::displayData(){
+    cout<<"Register Number:"<<regno<<endl;
+    cout<<"Student Name  "<<name<<endl;
+    cout<<"Subject 1 Subject Mark "<<m1<<endl;
+    cout<<"Subject 2 Subject Mark "<<m2<<endl;
+    cout<<"Subject 3 Subject Mark "<<m3<<endl;
+    cout<<"Subject 4 Subject Mark "<<m4<<endl;
+    cout<<"Subject 5 Subject Mark "<<m5<<endl;
+    cout<<"Total Mark="<<getTotal()<<endl;
+    cout<<"Average Mark="<<getAverage()<<endl;
+}
+int main(){
+   int n;
+   cout<<"Enter Total number of Students:";
+   cin>>n;
+   Student stud[n];
+   for(int i=0;i<n;i++){
+          cout<<"Enter Student "<<i+1<<" Register Number:";
+          cin>>stud[i].regno;
+          cout<<"Enter Student "<<i+1<<" Name:";
+          cin>>stud[i].name;
+          cout<<"Enter marks:"<<endl;
+          cout<<"Enter Subject 1 Mark:";
+          cin>>stud[i].m1;
+          cout<<"Enter Subject 2 Mark:";
+          cin>>stud[i].m2;
+          cout<<"Enter Subject 3 Mark:";
+          cin>>stud[i].m3;
+          cout<<"Enter Subject 4 Mark:";
+          cin>>stud[i].m4;
+          cout<<"Enter Subject 5 Mark:";
+          cin>>stud[i].m5;
+          cout<<endl;
+          cout<<endl;
+   }
+   cout<<"Displaying Information:\n\n"<<endl;
+   for(int i=0;i<n;i++){
+    stud[i].displayData();
+   }
+return 0;
+}
+
+SAMPLE OUTPUT:
+
+Enter Total number of Students:4
+Enter Student 1 Register Number:101
+Enter Student 1 Name:LAKSHITA
+Enter marks:
+Enter Subject 1 Mark:100
+Enter Subject 2 Mark:100
+Enter Subject 3 Mark:100
+Enter Subject 4 Mark:99
+Enter Subject 5 Mark:100
+
+
+Enter Student 2 Register Number:102
+Enter Student 2 Name:APARNALAKSHMI
+Enter marks:
+Enter Subject 1 Mark:100
+Enter Subject 2 Mark:99.89
+Enter Subject 3 Mark:96.78
+Enter Subject 4 Mark:88.90
+Enter Subject 5 Mark:98.79
+
+
+Enter Student 3 Register Number:103
+Enter Student 3 Name:AKSHITHA
+Enter marks:
+Enter Subject 1 Mark:100.00
+Enter Subject 2 Mark:99.99
+Enter Subject 3 Mark:98.90
+Enter Subject 4 Mark:89.90
+Enter Subject 5 Mark:88.99
+
+
+Enter Student 4 Register Number:104
+Enter Student 4 Name:MAHALAKSHMI
+Enter marks:
+Enter Subject 1 Mark:100
+Enter Subject 2 Mark:100.00
+Enter Subject 3 Mark:89.45
+Enter Subject 4 Mark:99.34
+Enter Subject 5 Mark:99.45
+
+
+Displaying Information:
+
+
+Register Number:101
+Student Name  LAKSHITA
+Subject 1 Subject Mark 100
+Subject 2 Subject Mark 100
+Subject 3 Subject Mark 100
+Subject 4 Subject Mark 99
+Subject 5 Subject Mark 100
+Total Mark=499
+Average Mark=99.8
+Register Number:102
+Student Name  APARNALAKSHMI
+Subject 1 Subject Mark 100
+Subject 2 Subject Mark 99.89
+Subject 3 Subject Mark 96.78
+Subject 4 Subject Mark 88.9
+Subject 5 Subject Mark 98.79
+Total Mark=484.36
+Average Mark=96.872
+Register Number:103
+Student Name  AKSHITHA
+Subject 1 Subject Mark 100
+Subject 2 Subject Mark 99.99
+Subject 3 Subject Mark 98.9
+Subject 4 Subject Mark 89.9
+Subject 5 Subject Mark 88.99
+Total Mark=477.78
+Average Mark=95.556
+Register Number:104
+Student Name  MAHALAKSHMI
+Subject 1 Subject Mark 100
+Subject 2 Subject Mark 100
+Subject 3 Subject Mark 89.45
+Subject 4 Subject Mark 99.34
+Subject 5 Subject Mark 99.45
+Total Mark=488.24
+Average Mark=97.648
+  

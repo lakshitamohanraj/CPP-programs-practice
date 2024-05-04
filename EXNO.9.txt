@@ -1,0 +1,86 @@
+9.
+--------------FRIEND FUNCTION---------------
+#include <iostream>
+using namespace std;
+//freind function
+class Base{
+    float val1,val2;
+    public:
+     void get(){
+        cout<<"enter the 1st value:";
+        cin>>val1;
+        cout<<"enter the 2nd value :";
+        cin>>val2;
+     }
+     friend double mean(Base);
+};
+double mean(Base ob){
+    return (ob.val1+ob.val2)/2;
+}
+int main(){
+    Base obj;
+    obj.get();
+    cout<<"MEAN="<<mean(obj)<<endl;
+    return 0;
+}
+SAMPLE OUTPUT:
+
+enter the 1st value:12
+enter the 2nd value :13
+MEAN=12.5
+
+------------------------------FREIND CLASS---------------
+
+
+#include <iostream>
+using namespace std;
+class Rectangle;
+class Square{
+    float side;
+    float length,breadth;
+    public:
+    Square()=default;
+    Square(float side):side(side){}
+     void area_sq(){
+        cout<<"Area of Square:"<<side*side<<endl;
+     }
+     void perimeter_sq(){
+        cout<<"Perimeter of square:"<<4*side<<endl;
+     }
+     friend class Rectangle;
+       
+};Square s;
+class Rectangle{
+    public:
+    void convert(){
+        cout<<"Enter the length and breadth of rectangle:";
+        cin>>s.length>>s.breadth;
+    }
+    void area_rec(){
+        cout<<"Area of Rectangle:"<<s.length*s.breadth<<endl;
+    }
+    void perimeter_rec(){
+        cout<<"Perimeter of Rectangle: "<<2*(s.length+s.breadth)<<endl;
+    }
+};
+int main(){
+    float a;
+    cout<<"Enter the side of square:";
+    cin>>a;
+   Square s(a);
+   s.area_sq();
+   s.perimeter_sq();
+   Rectangle r;
+   r.convert();
+   r.area_rec();
+   r.perimeter_rec();
+   return 0;
+}
+SAMPLE OUTPUT:
+
+Enter the side of square:2
+Area of Square:4
+Perimeter of square:8
+Enter the length and breadth of rectangle:12 3
+Area of Rectangle:36
+Perimeter of Rectangle: 30

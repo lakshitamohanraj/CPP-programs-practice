@@ -1,0 +1,86 @@
+
+3 a)
+//-------------CHECKING FOR PALINDROME-------------------
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main(){
+    char str[100];
+    cout<<"Enter a string:";
+    cin.getline(str,100);
+    int a=strlen(str);
+    int count=0,i;
+    for ( i=0;i<a;i++){
+        if(str[i]==str[a-i-1]) count++;
+    }
+if (i==count) cout<<str<<" is a palindrome string"<<endl;
+else cout<<str<<" is not plaindrome string"<<endl;
+
+return 0;
+}
+
+SAMPLE OUTPUT:
+
+Enter a string:MALAYALAM
+MALAYALAM is a palindrome string
+
+-------------------------------------------------------------------------------------------------
+3 b)
+//--------------------COUNT THE OCCURENCE OF EACH CHARACTER IN STRING--------------
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+void print(char *s);
+int main(){
+   char s[100];
+   cout<<"Enter a String:";
+   fgets(s,100,stdin);
+   cout<<"Occurrences of each character in string:"<<endl;
+   print(s);
+   return 0;
+}
+void print(char *s){
+    int l=strlen(s)-1;
+    char unique[l];
+    int c=0;
+    for(int i=0;i<l;i++){
+        bool already_counted=false;
+        for(int j=0;j<c;j++)
+        {
+            if (s[i]==unique[j])
+            already_counted=true; //already counted
+        }
+        if (already_counted) continue;
+        
+        int count=0;
+        for(int j=0;j<l;j++){
+           if(s[i]==s[j]) count++;
+        }
+        cout<<s[i]<<"="<<count<<" "<<endl;
+        unique[c]=s[i];
+        c++;
+    }
+}
+
+SAMPLE OUTPUT:
+
+Enter a String:DECLARATION
+Occurrences of each character in string:
+D=1
+E=1
+C=1
+L=1
+A=2
+R=1
+T=1
+I=1
+O=1
+N=1
+
+Enter a String:MISSISSIPPI
+Occurrences of each character in string:
+M=1
+I=4
+S=4
+P=2

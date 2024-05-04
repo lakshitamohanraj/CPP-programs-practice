@@ -1,0 +1,36 @@
+13.)
+//--------------PURE VIRTUAL FUNCTION-------------------
+
+#include <iostream>
+using namespace std;
+class Base{
+   public:
+    virtual void print(){};
+};
+
+class D1:public Base{
+  public:
+    void print() override {
+        cout<<"IT IS THE FIRST DERIVED CLASS"<<endl;
+    }
+};
+class D2:public Base{
+      public:
+         void print() override {
+            cout<<"IT IS THE SECOND DERIVED CLASS"<<endl;
+         }
+};
+int main(){
+     Base *ptr;
+     D1 d1;
+     D2 d2;
+     ptr=&d1;
+     ptr->print();
+     ptr=&d2;
+     ptr->print();
+     return 0;
+}
+SAMPLE OUTPUT:
+
+IT IS THE FIRST DERIVED CLASS
+IT IS THE SECOND DERIVED CLASS

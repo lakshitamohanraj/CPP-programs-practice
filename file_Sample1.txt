@@ -1,0 +1,5 @@
+Introduction
+
+Files store data permanently in a storage device. With file handling, the
+output from a program can be stored in a file. Various operations can be performed on
+the data while in the file.

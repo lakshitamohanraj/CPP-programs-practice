@@ -1,0 +1,84 @@
+7. Program to illustrate default constructor, parameterized constructor and copy constructors
+
+#include <iostream>
+using namespace std;
+class Tution{
+    private:
+    long int registrationNumber;
+    string teacherName;
+    unsigned long int feesAmount;
+    //default constructor
+    public:
+    Tution(){
+        registrationNumber=0;
+        teacherName=" ";
+        feesAmount=0;
+    }
+    //parameterised Constructor
+    Tution(long int regno,string name,unsigned long fees){
+        registrationNumber=regno;
+        teacherName=name;
+        feesAmount=fees;
+    }
+    //copy constructor
+    Tution(Tution &t){
+        this->registrationNumber=t.registrationNumber;
+        this->teacherName=t.teacherName;
+        this->feesAmount=t.feesAmount;
+    }
+    //setting data
+    void getData(){
+    cout<<"Enter Register Number: ";
+    cin>>registrationNumber;
+    cout<<"Enter the Name: "<<endl;
+    cin>>teacherName;
+    cout<<"Enter the Fee: "<<endl;
+    cin>>feesAmount;
+    }
+    void showData(){
+        cout<<"Register Number: "<<registrationNumber<<endl;
+        cout<<"Name           : "<<teacherName<<endl;
+        cout<<"Fees Amount    : Rs."<<feesAmount<<"/-"<<endl;
+    }
+};
+int main(){
+    Tution t1;
+    cout<<"After Default Constructor"<<endl;
+    t1.showData();
+    Tution t2(111722102079,"mohanraj",1000000);
+    cout<<"After Parameterised Constructor"<<endl;
+    t2.showData();
+    cout<<"After Copy Constructor"<<endl;
+    Tution t3(t2);
+    t3.showData();
+    cout<<"After Member Function invocation"<<endl;
+    t1.getData();
+    t1.showData();
+    return 0;
+
+}
+
+
+SAMPLE OUTPUT:
+
+After Default Constructor
+Register Number: 0
+Name           :
+Fees Amount    : Rs.0/-
+After Parameterised Constructor
+Register Number: 52952383
+Name           : mohanraj
+Fees Amount    : Rs.1000000/-
+After Copy Constructor
+Register Number: 52952383
+Name           : mohanraj
+Fees Amount    : Rs.1000000/-
+After Member Function invocation
+Enter Register Number: 1001
+Enter the Name:
+RAGHAV
+Enter the Fee:
+2500000
+Register Number: 1001
+Name           : RAGHAV
+Fees Amount    : Rs.2500000/-

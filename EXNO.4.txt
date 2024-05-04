@@ -1,0 +1,184 @@
+
+4)
+
+//------------------------GENERATE PAY SLIP FOR EMPLOYEES------------------------
+#include <iostream>
+using namespace std;
+struct Employee{
+    unsigned int EID;
+     string Ename,Designation;
+     double Basicpay,DA,HRA,PF;
+     double LIC,gross_sal,deduction,netsal;
+     void getData(){
+       cout<<"Enter Employee Id:";
+       cin>>EID;
+       cout<<"Enter Name of Employee:";
+       cin>>Ename;
+       cout<<"Enter employee Designation:";
+       cin>>Designation;
+       cout<<"Enter employee Date of Birth:";
+       cin>>DOB.dob_d;
+       cout<<"Enter employee Month of Brith:";
+       cin>>DOB.dob_m;
+       cout<<"Enter employee Year of Brith:";
+       cin>>DOB.dob_y;
+       cout<<"Enter employee Date of Joining:";
+       cin>>DOJ.doj_d;
+       cout<<"Enter employee Month of Joining:";
+       cin>>DOJ.doj_m;
+       cout<<"Enter employee Year of Joining:";
+       cin>>DOJ.doj_y;
+       cout<<"Enter Basic Pay of the employee:";
+       cin>>Basicpay;
+       HRA=0.18*Basicpay;
+       DA=0.15*Basicpay;
+       PF=0.1*Basicpay;
+       LIC=0.07*Basicpay;
+       deduction=PF+LIC;
+       gross_sal=Basicpay+HRA+DA;
+       netsal=gross_sal-deduction;
+
+     }
+     void PaySlip(){
+        cout<<"Employee ID                     :"<<EID<<endl;
+        cout<<"Employee Name                   :"<<Ename<<endl;
+        cout<<"Designation                     :"<<Designation<<endl;
+        DOB.getDob();
+        DOJ.getDoj();
+        cout<<"Basic Pay                       :"<<Basicpay<<endl;
+        cout<<"Dearness Allowance (DA)         :"<<DA<<endl;
+        cout<<"House Rent Allowance (HRA)      :"<<HRA<<endl;
+        cout<<"Provident Fund(PF)              :"<<PF<<endl;
+        cout<<"Life Insurance Corporation(LIC) :"<<LIC<<endl;
+        cout<<"Gross Salary                    :"<<gross_sal<<endl;
+        cout<<"Deduction                       :"<<deduction<<endl;
+        cout<<"Net Salary                      :"<<netsal<<endl;
+     }
+     struct dateOfBirth{
+           int dob_d,dob_m,dob_y;
+           void getDob(){
+            cout<<"Date Of Brith                   :"<<dob_d<<"/"<<dob_m<<"/"<<dob_y<<endl;
+           }
+     } DOB;
+     struct dateOfjoining{
+          int doj_d,doj_m,doj_y;
+          void getDoj(){
+            cout<<"Date Of Joining                 :"<<doj_d<<"/"<<doj_m<<"/"<<doj_y<<endl;
+          }   
+     } DOJ;
+};
+
+
+int main(){
+     int n;
+     cout<<"Enter the number of Employee:";
+     cin>>n;
+    Employee *eptr,emp[n];
+    eptr=emp;
+   for(int i=0;i<n;i++){
+    cout<<"Enter Employee "<<i+1<<" Details"<<endl;
+    (eptr+i)->getData();
+   }
+ //to display
+ cout<<"-----------------Pay Slip for the Employees--------------------"<<endl;
+ for(int i=0;i<n;i++){
+    cout<<"For Employee "<<i+1<<endl;
+    (eptr+i)->PaySlip();
+    cout<<endl;
+    cout<<endl;
+ }
+    
+    return 0;
+}
+
+
+
+
+
+
+SAMPLE OUTPUT:
+
+
+
+
+Enter the number of Employee:3
+Enter Employee 1 Details
+Enter Employee Id:2079
+Enter Name of Employee:LAKSHITA
+Enter employee Designation:DataAnalyst
+Enter employee Date of Birth:3
+Enter employee Month of Brith:9
+Enter employee Year of Brith:2004
+Enter employee Date of Joining:26
+Enter employee Month of Joining:1
+Enter employee Year of Joining:2022
+Enter Basic Pay of the employee:600000
+Enter Employee 2 Details
+Enter Employee Id:2083
+Enter Name of Employee:AparnaLakshmi
+Enter employee Designation:CloudArchitect
+Enter employee Date of Birth:6
+Enter employee Month of Brith:7
+Enter employee Year of Brith:2004
+Enter employee Date of Joining:27
+Enter employee Month of Joining:1
+Enter employee Year of Joining:2022
+Enter Basic Pay of the employee:750000
+Enter Employee 3 Details
+Enter Employee Id:2066
+Enter Name of Employee:Kirthuga
+Enter employee Designation:AIProductManager
+Enter employee Date of Birth:8
+Enter employee Month of Brith:9
+Enter employee Year of Brith:2005
+Enter employee Date of Joining:8
+Enter employee Month of Joining:1
+Enter employee Year of Joining:2022
+Enter Basic Pay of the employee:800000
+-----------------Pay Slip for the Employees--------------------
+For Employee 1
+Employee ID                     :2079
+Employee Name                   :LAKSHITA
+Designation                     :DataAnalyst
+Date Of Brith                   :3/9/2004
+Date Of Joining                 :26/1/2022
+Basic Pay                       :600000
+Dearness Allowance (DA)         :90000
+House Rent Allowance (HRA)      :108000
+Provident Fund(PF)              :60000
+Life Insurance Corporation(LIC) :42000
+Gross Salary                    :798000
+Deduction                       :102000
+Net Salary                      :696000
+
+
+For Employee 2
+Employee ID                     :2083
+Employee Name                   :AparnaLakshmi
+Designation                     :CloudArchitect
+Date Of Brith                   :6/7/2004
+Date Of Joining                 :27/1/2022
+Basic Pay                       :750000
+Dearness Allowance (DA)         :112500
+House Rent Allowance (HRA)      :135000
+Provident Fund(PF)              :75000
+Life Insurance Corporation(LIC) :52500
+Gross Salary                    :997500
+Deduction                       :127500
+Net Salary                      :870000
+
+
+For Employee 3
+Employee ID                     :2066
+Employee Name                   :Kirthuga
+Designation                     :AIProductManager
+Date Of Brith                   :8/9/2005
+Date Of Joining                 :8/1/2022
+Basic Pay                       :800000
+Dearness Allowance (DA)         :120000
+House Rent Allowance (HRA)      :144000
+Provident Fund(PF)              :80000
+Life Insurance Corporation(LIC) :56000
+Gross Salary                    :1064000
+Deduction                       :136000
+Net Salary                      :928000

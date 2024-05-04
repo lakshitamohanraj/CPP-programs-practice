@@ -1,0 +1,63 @@
+6.Write a program Illustrating Class Declarations, Definition, and Accessing Class Members.
+
+
+#include <iostream>
+using namespace std;
+class Student{
+    private:
+    string registrationNumber;
+    string Name;
+    double percentage;
+    public:
+    void readDetails(string registrationNumber,string Name,double percentage){
+        this->registrationNumber=registrationNumber;
+        this->Name=Name;
+        this->percentage=percentage;
+
+    }
+    void printDetails(){
+        cout<<"Register Number: "<<registrationNumber<<endl;
+        cout<<"Name           : "<<Name<<endl;
+        cout<<"Percentage     : "<<percentage<<endl;
+    }
+};
+int main(){
+    string name,regno;
+    double percentage;
+    cout<<"Enter Student Details"<<endl;
+    cout<<"Enter Student Register Number: ";
+    cin>>regno;
+    cout<<"Enter Student Name: "<<endl;
+    cin>>name;
+    cout<<"Enter Percentage: "<<endl;
+    cin>>percentage;
+    Student s1;
+    s1.readDetails(regno,name,percentage);
+    s1.printDetails();
+    return 0;    
+}
+
+
+SAMPLE OUTPUT:
+
+Enter Student Details
+Enter Student Register Number: 1001
+Enter Student Name:
+MUKESHKUMAR
+Enter Percentage:
+99.99
+Register Number: 1001
+Name           : MUKESHKUMAR
+Percentage     : 99.99
+
+
+Enter Student Details
+Enter Student Register Number: 2089
+Enter Student Name:
+LAKSHITA
+Enter Percentage:
+100.00
+Register Number: 2089
+Name           : LAKSHITA
+Percentage     : 100
+

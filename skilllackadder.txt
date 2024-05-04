@@ -1,0 +1,22 @@
+//Adder
+ program
+#include <iostream>
+using namespace std;
+class Calculator{
+public:
+  class Adder{
+public:
+   int add(int a,int b){
+          return a+b;
+                       }
+  }adder;
+};
+
+int main(){
+Calculator calc;
+Calculator::Adder adder=calc.adder;
+cout<<adder.add(12,1);
+}
+
+output:
+ 13

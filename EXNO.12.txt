@@ -1,0 +1,190 @@
+
+12 a)
+
+//------------single inheritances--------------------------------------------------------
+#include <iostream>
+using namespace std;
+class Base{
+    protected:
+    int x,y;
+    public:
+    Base(){
+        cout<<"Enter the Value of x=";
+        cin>>x;
+        cout<<"Enter the vaule of y=";
+        cin>>y;
+    } 
+};
+class Derived:public Base{
+   public:
+      void product(){
+        cout<<"Product="<<x*y<<endl;  
+            }
+};
+int main(){
+    Derived d;
+    d.product();
+    return 0;
+}
+
+
+SAMPLE OUTPUT:
+Enter the Value of x=49
+Enter the vaule of y=7
+Product=343
+-----------------------------------------------------------------------------
+
+12 b)
+//-----------------MULTIPLE INHERITANCES---------------
+#include <iostream>
+using namespace std;
+class student{
+     public:
+     int rollno;
+     float mark1,mark2;
+     void get(){
+        cout<<"Enter the Roll no:";
+        cin>>rollno;
+        cout<<"Enter the two marks"<<endl;
+        cin>>mark1;
+        cin>>mark2;
+     }
+};
+class sports{
+    public:
+    float smark;
+    void getsm(){
+        cout<<"Enter the sport mark :";
+        cin>>smark;
+    }
+};
+class statement:public student,public sports
+{
+   public:
+     void display(){
+        student s;
+   sports sp;
+   s.get();
+   sp.getsm();
+        cout<<"Roll no:"<<s.rollno<<endl;
+        cout<<"Total:"<<s.mark1+s.mark2+sp.smark<<endl;
+        cout<<"Average:"<<(s.mark1+s.mark2+sp.smark)/3.0<<endl;
+     }
+};
+int main(){
+    statement s;
+    s.display();
+    return 0;
+}
+SAMPLE OUTPUT:
+
+Enter the Roll no:2079
+Enter the two marks
+99.98
+87.89
+Enter the sport mark :100.00
+Roll no:2079
+Total:287.87
+Average:95.9567
+
+--------------------------------------------------------------------------------------
+12 c)
+//-----------------MULTI LEVEL INHERITANCE---------------------
+#include <iostream>
+using namespace std;
+class Vehicle{
+  public:
+     Vehicle(){
+        cout<<"I AM A VEHICLE"<<endl;
+     }
+};
+class FourWheeler:public Vehicle{
+    public:
+    FourWheeler(){
+        cout<<"I HAVE FOUR WHEELS"<<endl;
+    }
+};
+class Car:public FourWheeler{
+  public:
+   Car(){
+      cout<<"I AM A CAR"<<endl;
+   }
+};
+int main(){
+    Car c1;
+    return 0;
+}
+SAMPLE OUTPUT:
+I AM A VEHICLE
+I HAVE FOUR WHEELS
+I AM A CAR
+---------------------------------------------------------------------------------------
+12 d)
+
+//---------------------HIEARCHICAL INHERITANCE------------------
+#include <iostream>
+#define PI 3.145267
+using namespace std;
+class Shape{
+    protected:
+       float length,breadth,radius,side;
+   public:
+      Shape()=default;
+};
+class Rectangle:public Shape{
+    public:
+      Rectangle(float l,float b){
+        length=l;
+        breadth=b;
+      }
+   float getArea_rec(){
+    return length*breadth;
+   }
+};
+class Circle :public Shape{
+       public:
+       Circle(float r){
+        radius=r;
+       }
+       float getArea_cir(){
+        return (PI)*radius*radius;
+       }
+};
+class Square:public Shape{
+   public:
+   Square(float s){
+    side=s;
+   }
+   float getArea_sq(){
+    return side*side;
+   }
+};
+int main(){
+    float l,b,r,s;
+    cout<<"Enter Length:";
+    cin>>l;
+    cout<<"Enter Breadth:";
+    cin>>b;
+    Rectangle rec(l,b);
+   cout<<"Area of Rectangle:"<< rec.getArea_rec()<<endl;
+   cout<<"Enter Radius:";
+   cin>>r;
+    Circle cir(r);
+    cout<<"Area of Circle:"<<cir.getArea_cir()<<endl;
+    cout<<"Enter Side:";
+    cin>>s;
+    Square sq(s);
+    cout<<"Area of Square:"<<sq.getArea_sq()<<endl;
+    return  0;
+
+}
+
+SAMPLE OUTPUT:
+
+Enter Length:10
+Enter Breadth:20
+Area of Rectangle:200
+Enter Radius:4
+Area of Circle:50.3243
+Enter Side:6
+Area of Square:36

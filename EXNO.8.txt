@@ -1,0 +1,101 @@
+8.
+
+-----------------------//OPERATOR OVERLOADING -------------------------
+#include <iostream>
+using namespace std;
+class Complex{
+    private:         
+    float real,imag;
+    public:
+    void getvalue(){
+        cout<<"Enter Real part:";
+        cin>>real;
+        cout<<"Enter Imaginary part:";
+        cin>>imag;   }
+    void showData()
+    {
+        if(imag>0){cout<<"Output Complex number :"<<real<<"+"<<imag<<"i"<<endl;}
+        else if(imag<0){cout<<"Output Complex number :"<<real<<" "<<imag<<"i"<<endl;}
+      else{cout<<"Output Complex number :"<<real<<endl;}
+}
+Complex operator+(Complex);
+    Complex operator-(Complex);
+};
+Complex Complex::operator+(Complex c1){
+    Complex temp;
+    temp.real=real+c1.real;
+    temp.imag=imag+c1.imag;
+    return temp;
+}
+Complex Complex::operator-(Complex c1){
+    Complex temp;
+    temp.real=real-c1.real;
+    temp.imag=imag-c1.imag;
+    return temp;
+}
+int main(){
+    Complex obj1,obj2,result;
+    cout<<"Enter first complex number :"<<endl;
+    obj1.getvalue();
+    cout<<"Enter second complex number :"<<endl;
+    obj2.getvalue();
+   result=obj1+obj2;
+   cout<<"Adding the given two complex numbers we will get:"<<endl;
+  result.showData();
+   return 0;
+}
+
+
+SAMPLE OUTPUT:
+
+Enter first complex number :
+Enter Real part:8
+Enter Imaginary part:-9
+Enter second complex number :
+Enter Real part:6
+Enter Imaginary part:5
+Adding the given two complex numbers we will get:
+Output Complex number :14 -4i
+
+---------------------FUNCTION OVERLOADING-----------------------------
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+using namespace std;
+class shape{ 
+    public:
+    static double ans;
+    void volume(double radius,double height){
+        cout<<"Volume of cylinder:";
+        ans=(22/7.0)*radius*radius*height;
+    }
+    void volume(double side){
+        cout<<"Volume of Cube:";
+        ans=side*side*side;
+    }
+   void volume(int width,int breadth){
+    cout<<"Volume of Reactangle:";
+    ans=width*breadth;
+   }
+   void display(){
+    cout<<ans<<endl;
+   }
+
+};
+double shape::ans=0;
+int main(){
+      shape c1;
+      c1.volume(2,9);
+      c1.display();
+      c1.volume(32.90,12.99);
+      c1.display();
+      c1.volume(10.89);
+      c1.display();
+      return 0;
+}
+
+SAMPLE OUTPUT:
+
+Volume of Reactangle:18
+Volume of cylinder:44190.2
+Volume of Cube:1291.47
